@@ -1,0 +1,48 @@
+/*!
+ * IE10 viewport hack for Surface/desktop Windows 8 bug
+ * Copyright 2014-2015 Twitter, Inc.
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+ */
+
+/*
+ * See the Getting Started docs for more information:
+ * http://getbootstrap.com/getting-started/#support-ie10-width
+ */
+//  @-ms-viewport     { width: device-width; }
+//  @-o-viewport      { width: device-width; }
+//  @viewport         { width: device-width; }
+
+ 
+/* 头部左侧宽度和左侧菜单宽度 */
+
+$main-left-width:230px;
+/* LOGO样式变量 */
+
+$logo-bg:#4397e6;
+/* 头部样式变量 main-header */
+
+$main-header-height:60px;
+$main-header-bg:#62a8ea;
+$main-header-bg-hover:#4397e6;
+$main-header-color:#fff;
+$main-header-color-hover:#fff;
+/* 头部用户头像等比尺寸 */
+
+$main-header-Avatar-wh:25px;
+/* 左侧菜单样式变量 main-sidebar */
+
+$main-sidebar-bg:#263238;
+$main-sidebar-bg-hover:#242f35;
+$main-sidebar-color:rgba(163, 175, 183, .9);
+$main-sidebar-color-hover:rgba(255, 255, 255, .8);
+/* 导入样式 */
+
+@import "common.scss";
+@import "header.scss";
+@import "sidebar.scss";
+@import "content.scss";
+@import "footer.scss";
+@import "layout.scss";
+@import "site.scss";
+@import "alertify";
+@import "button";
