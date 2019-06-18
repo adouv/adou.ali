@@ -150,39 +150,38 @@ export default {
         UserPwd: this.userPwd,
         UserCode: this.userCode
       };
-      window.location.href = "/";
-      // this.$http
-      //   .post("/api/ali/User/UserLogin", Service.Encrypt.DataEncryption(params))
-      //   .then(
-      //     response => {
-      //       if (
-      //         response.data &&
-      //         response.data != null &&
-      //         response.data != undefined
-      //       ) {
-      //         if (response.data.Status == 100) {
-      //           response.data.Data.userPwd = null;
-      //           Service.Util.SetLocalStorage(Service.Enum.CGT_ALI_USER, "");
-      //           Service.Util.SetLocalStorage(
-      //             Service.Enum.CGT_ALI_USER,
-      //             JSON.stringify(response.data.Data)
-      //           );
-      //           this.$tip("登录成功！");
-      //           setTimeout(() => {
-      //             window.location.href = "/";
-      //           }, 1500);
-      //         } else {
-      //           this.$tip(response.data.Message);
-      //         }
-      //       } else {
-      //         this.$tip(response.data.Message);
-      //       }
-      //     },
-      //     error => {
-      //       this.$tip(error);
-      //       console.log(error);
-      //     }
-      //   );
+      this.$http
+        .post("/api/ali/User/UserLogin", Service.Encrypt.DataEncryption(params))
+        .then(
+          response => {
+            if (
+              response.data &&
+              response.data != null &&
+              response.data != undefined
+            ) {
+              if (response.data.Status == 100) {
+                response.data.Data.userPwd = null;
+                Service.Util.SetLocalStorage(Service.Enum.CGT_ALI_USER, "");
+                Service.Util.SetLocalStorage(
+                  Service.Enum.CGT_ALI_USER,
+                  JSON.stringify(response.data.Data)
+                );
+                this.$tip("登录成功！");
+                setTimeout(() => {
+                  window.location.href = "/";
+                }, 1500);
+              } else {
+                this.$tip(response.data.Message);
+              }
+            } else {
+              this.$tip(response.data.Message);
+            }
+          },
+          error => {
+            this.$tip(error);
+            console.log(error);
+          }
+        );
     }
   }
 };

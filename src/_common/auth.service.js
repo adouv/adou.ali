@@ -18,8 +18,9 @@ export default {
    * 确保要调用 next 方法，否则钩子就不会被 resolved。
    */
   loginAuth: (router, routers) => {
+    let IsLogin = UtilService.IsExistLocalStorage(EnumService.CGT_ALI_USER);
+
     router.beforeEach((to, from, next) => {
-      let IsLogin = UtilService.IsExistLocalStorage(EnumService.CGT_ALI_USER);
       let nextRoute = [];
       //循环所有路由，加入到新的数组
       routers.forEach(element => {
@@ -34,7 +35,7 @@ export default {
       //判断当前路由是否在配置内
       if (nextRoute.indexOf(to.name) > -1) {
         if (!IsLogin) {
-          //router.push("login");
+          router.push("login");
         }
       }
       //如果当前路由为logo则判断是否登录
